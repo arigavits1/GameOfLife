@@ -49,6 +49,9 @@ int main(int argc, char* argv[])
     }
 
     bool isRunning = true;
+    int frames = 0;
+    int delay = 100;
+    float startTime = SDL_GetTicks();
     while (isRunning)
     {
         while (SDL_PollEvent(&event))
@@ -73,7 +76,7 @@ int main(int argc, char* argv[])
             {
                 if (swap[i][j])
                 {
-                    renderer.drawPixel(i * 10, j * 10); // Scale by 10
+                    renderer.drawPixel(i * 10, j * 10);
                 }
             }
         }
@@ -83,8 +86,16 @@ int main(int argc, char* argv[])
 
         renderer.clearPixels();
 
-        SDL_Delay(1000 / 10);
+        frames++;
+
+        SDL_Delay(delay);
     }
+    float endTime = SDL_GetTicks();
+    float time = (endTime - startTime) / 1000.0f;
+
+    std::cout << "Time: " << time << std::endl;
+    std::cout << "Frames : " << frames << std::endl;
+    std::cout << "Average FPS: " << frames / time << std::endl;
 
     renderer.cleanUp();
     SDL_Quit();

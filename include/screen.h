@@ -25,15 +25,6 @@ public:
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     }
 
-    int getRefreshRate()
-    {
-        int displayIndex = SDL_GetWindowDisplayIndex(window);
-        SDL_DisplayMode mode;
-
-        SDL_GetDisplayMode(displayIndex, 0, &mode);
-        return mode.refresh_rate;
-    }
-
     void drawPixel(int x, int y, Uint8 r = 255, Uint8 g = 255, Uint8 b = 255, Uint8 a = 255)
     {
         points.emplace_back(x, y);

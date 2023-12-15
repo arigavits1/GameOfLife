@@ -3,8 +3,8 @@
 #include <random>
 #include "include/screen.h"
 
-const int WIN_WIDTH = 160;
-const int WIN_HEIGHT = 90;
+const int WIN_WIDTH = 192;
+const int WIN_HEIGHT = 108;
 
 bool isAlive(std::array<std::array<int, (size_t)WIN_HEIGHT>, (size_t)WIN_WIDTH>& game, const int x, const int y)
 {
